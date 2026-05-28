@@ -1,0 +1,32 @@
+[project]
+name = "langchain-reasoning"
+version = "0.1.0"
+description = "High-level reasoning agents with planning, confidence judgement, and reflection on top of LangGraph"
+requires-python = ">=3.9"
+dependencies = [
+    "langgraph>=0.2.0",
+    "langchain>=0.3.0",
+    "langchain-core>=0.3.0",
+    "langchain-openai>=0.2.0",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "langchain-deepseek>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/${{ github.repository_owner }}/langchain-reasoning"
+Repository = "https://github.com/${{ github.repository_owner }}/langchain-reasoning"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+python_files = "test_*.py"
+addopts = "-q --tb=no"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["langchain_reasoning*"]
